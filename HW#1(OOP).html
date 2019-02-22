@@ -1,0 +1,61 @@
+<!-- ДЗ: создать родительский конструктор, У родительского конструктора нужно создать поля (статические - те что будут для всех - одинаковые). От родителя должно быть наследование 2  функция конструкторов. У каждого дочернего конструктора - по 3 экземпляра. Реализуйте свойства и методы отображения свойств для каждого наследника. Александр, Дмитрий: континенты и страны, Юля, Иванна: животные, Андрей, Костя: фильмы и жанры,  Руслан и Руслан: напитки, Карина, Елена: рестораны, кафе -->
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+ 		<title>OOP</title>
+	</head>
+	<body>
+		<script>
+			function Films( _genre, _country, _title){
+				this.genre=_genre;
+				this.country=_country;
+				this.title = _title;
+				this.sayGenre = function(){
+					document.write("Жанр фильма - "+this.genre+". ");
+				}
+				this.sayCountry = function(){
+					document.write("Страна производитель - "+this.country+". ");
+				}
+				this.sayTitle = function(){
+					document.write("Название фильма - "+this.title+". ");
+				}
+			}
+
+			function Thriller(_year, _title){
+				this.year=_year;
+				this.title = _title;
+				this.sayYear = function(){
+					document.write("Год - "+this.year+". ");
+				}
+			}
+
+			function Comedy(_mark, _title){
+				this.mark = _mark;
+				this.title = _title;
+				this.sayMark = function(){
+					document.write("Оценка фыльма - "+this.mark+". ");
+				}
+			}
+
+			var thrillers = new Films("Thriller", "USA");
+			var comedies = new Films("Comedy", "USA");
+
+			Thriller.prototype = thrillers;
+			Comedy.prototype = comedies;
+
+			var film1 = new Thriller(2001, "Fast and furious");
+			var film2 = new Thriller(2018, "Commuter");
+			var film3 = new Thriller(2010, "Inception");
+
+			var film4 = new Comedy(8.7, "Grown Ups 2");
+			var film5 = new Comedy(6.5, "Spy");
+			var film6 = new Comedy(8, "Grown Ups");
+
+			film1.sayGenre();
+			film1.sayTitle();
+			film1.sayYear();
+
+		</script>
+	</body>
+</html>
