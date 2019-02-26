@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+ 		<title></title>
+	</head>
+	<body>
+		<p id="p">hyper text markup language</p>
+		<button onclick="abbr()">ABBR</button>&nbsp;&nbsp;&nbsp;<button onclick="bfw()">Big first word</button>
+
+		<script>
+			var str = document.getElementById("p").innerHTML;
+			function abbr(){
+				var split = str.split(" ");
+				var newAbbr="";
+				for(var i =0;i<split.length;i++){
+					newAbbr+=(split[i].charAt(0).toUpperCase());
+				}
+				document.write(newAbbr);
+			}
+
+
+			function bfw(){
+				var split = str.split(" ");
+				var newStr ="";
+				for(var i =0;i<split.length;i++){
+					newStr+=(split[i].charAt(0).toUpperCase())+split[i].substr(1)+" ";	
+				}
+				document.write(newStr);
+			}
+		</script>
+	</body>
+</html>
