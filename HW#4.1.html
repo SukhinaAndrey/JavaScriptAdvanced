@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+ 		<title></title>
+ 		<style>
+ 			#div{
+ 				height: 150px;
+ 				width: 150px;
+ 				margin-left: 600px;
+ 				margin-top: 100px;
+ 				background: red;
+ 				position: relative;
+ 			} 
+ 			#buttonTop, #buttonBottom, #buttonLeft, #buttonRight{
+ 				background: #bb432c;
+				font-size: 40px;
+				cursor: pointer;
+				font-family: "Lato", "Helvetica Neue", "Helvetica", sans-serif;
+				border-radius: 4px;
+				text-align: center;
+				padding: 15px;
+				margin-top: 200px;
+				margin-left: 30px;
+ 			}
+ 			#buttonTop{
+ 				margin-left: 300px;
+ 			}
+ 			#buttonTop:hover, #buttonBottom:hover, #buttonLeft:hover, #buttonRight:hover{
+ 				background: #A52A2A;
+ 			}
+ 		</style>
+	</head>
+	<body>
+		<div id="div"></div>
+		<button id="buttonTop" onclick="top_()">TOP</button>
+		<button id="buttonBottom" onclick="bottom_()">BOTTOM</button>
+		<button id="buttonLeft" onclick="left_()">LEFT</button>
+		<button id="buttonRight" onclick="right_()">RIGHT</button>
+		<script>
+
+			var div = document.getElementById("div");
+
+			var i=0;
+			function top_(){
+				i++;
+				div.style.top = -20*i + 20*j + "px";
+			}
+
+			var j=0;
+			function bottom_(){
+				j++;
+				div.style.top = -20*i + 20*j + "px";
+			}
+
+			var k=0;
+			function left_(){
+				k++;
+				div.style.left = -20*k +20*q + "px";
+			}
+
+			var q=0;
+			function right_(){
+				q++;
+				div.style.left = -20*k + 20*q + "px";
+			}
+
+		</script>
+	</body>
+</html>
