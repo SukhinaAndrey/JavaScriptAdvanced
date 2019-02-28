@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+ 		<title></title>
+ 		<style>
+ 			.div{
+ 				height: 150px;
+ 				width: 150px;
+ 				float: left;
+ 				margin-left: 100px;
+ 				margin-top: 100px;
+ 				background: red;
+ 			} 
+ 			#button, #button1, #button2{
+ 				background: #bb432c;
+				font-size: 40px;
+				cursor: pointer;
+				font-family: "Lato", "Helvetica Neue", "Helvetica", sans-serif;
+				border-radius: 4px;
+				text-align: center;
+				padding: 15px;
+				margin-top: 100px;
+				margin-left: 30px;
+ 			}
+ 			#button{
+ 				margin-left: 500px;
+ 			}
+ 			#button:hover, #button1{
+ 				background: #A52A2A;
+ 			}
+ 		</style>
+	</head>
+	<body>
+		<div class="div"></div>
+		<div class="div"></div>
+		<div class="div"></div>
+		<div class="div"></div>
+		<div class="div"></div>
+
+		<button id="button" onclick="time()">GO</button>
+		<button id="button2" onclick="stop()">STOP</button>
+		<button id="button1" onclick="timeback()">BACK</button>
+		<script>
+
+			var A = document.getElementsByTagName('div');
+			var i=0;
+			var timer;
+			var timer2;
+			function time(){
+				clearInterval(timer2);
+				timer = setInterval(go,1000);
+			}
+			function stop(){
+				clearInterval(timer);
+				clearInterval(timer2);
+			}
+			function timeback(){
+				clearInterval(timer);
+				timer2 = setInterval(back,1000);
+			}
+
+			function go(){
+				if(i>0 && i<A.length-1){
+					A[i].style.background="green";
+					A[i-1].style.background="red";
+					i++;
+				}
+				else if(i==A.length-1){
+					A[i].style.background="green";
+					A[i-1].style.background="red";
+					i=0;	
+				}else{
+					A[i].style.background="green";
+					A[A.length-1].style.background="red";
+					i++;
+				}
+			}
+
+			function back(){
+				if(i>0 && i<A.length-1){
+					A[i].style.background="red";
+					A[i-1].style.background="green";
+					i--;
+				}
+				else if(i==0){
+					A[A.length-1].style.background="green";
+					A[i].style.background="red";
+					i=A.length-1;	
+				}else{
+					A[i].style.background="red";
+					A[i-1].style.background="green";
+					i--;
+				}
+			}
+		</script>
+	</body>
+</html>
